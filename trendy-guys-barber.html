@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trendy Guys Barber Shop — Peckham</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16202B;
+    --navy-2:#1D2C3B;
+    --brass:#C9A24B;
+    --off:#EDEAE3;
+    --red:#8C2F2F;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--off); color:var(--navy); font-family:'Source Sans 3', sans-serif;}
+  h1,h2,h3{font-family:'Oswald', sans-serif; text-transform:uppercase; letter-spacing:0.02em; line-height:1.05;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 28px;}
+  a{color:inherit;}
+
+  header{background:var(--navy); color:var(--off); padding:24px 0; position:sticky; top:0; z-index:5;}
+  header .wrap{display:flex; justify-content:space-between; align-items:center;}
+  .brand{font-family:'Oswald'; font-weight:700; font-size:20px; letter-spacing:0.04em;}
+  .brand span{color:var(--brass);}
+  nav a{text-decoration:none; margin-left:28px; font-size:14px; font-weight:600; color:var(--off);}
+  nav a:hover{color:var(--brass);}
+
+  .hero{background:var(--navy); color:var(--off); padding:64px 0 90px; position:relative; overflow:hidden;}
+  .hero::after{
+    content:""; position:absolute; right:-60px; top:0; bottom:0; width:220px;
+    background:repeating-linear-gradient(115deg, var(--brass) 0 6px, transparent 6px 46px);
+    opacity:0.12;
+  }
+  .hero .wrap{position:relative;}
+  .rating{color:var(--brass); font-weight:700; font-size:15px; letter-spacing:0.05em; margin-bottom:20px;}
+  .hero h1{font-size:clamp(38px,7vw,64px); max-width:14ch;}
+  .hero p{max-width:44ch; margin-top:20px; font-size:18px; color:#C7C2B4;}
+  .cta{display:inline-block; margin-top:34px; background:var(--brass); color:var(--navy); padding:15px 32px; font-weight:700; text-decoration:none; font-family:'Oswald'; letter-spacing:0.03em; text-transform:uppercase; font-size:15px;}
+  .cta:hover{background:var(--off);}
+  .cta.ghost{background:transparent; border:2px solid var(--off); color:var(--off); margin-left:14px;}
+  .cta.ghost:hover{border-color:var(--brass); color:var(--brass);}
+
+  .stat-bar{background:var(--brass); color:var(--navy);}
+  .stat-bar .wrap{display:flex; justify-content:space-between; padding:20px 28px; flex-wrap:wrap; gap:12px;}
+  .stat-bar div{font-family:'Oswald'; font-weight:600; font-size:15px;}
+  .stat-bar strong{font-size:22px; margin-right:6px;}
+
+  section{padding:70px 0;}
+  .section-head h2{font-size:clamp(26px,4vw,36px); margin-bottom:8px;}
+  .section-head .rule{width:60px; height:3px; background:var(--red); margin-bottom:34px;}
+
+  .services{display:grid; grid-template-columns:1fr 1fr; gap:0; border-top:1px solid #D6D0C1;}
+  .service{display:flex; justify-content:space-between; align-items:center; padding:18px 20px; border-bottom:1px solid #D6D0C1;}
+  .service:nth-child(odd){border-right:1px solid #D6D0C1;}
+  .service .name{font-weight:600; font-size:16px;}
+  .service .price{font-family:'Oswald'; color:var(--red); font-weight:600; font-size:17px;}
+
+  .quotes{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  .quote{background:var(--navy); color:var(--off); padding:26px;}
+  .quote p{font-size:15px; line-height:1.6; color:#D9D5C8;}
+  .quote .who{margin-top:16px; color:var(--brass); font-weight:600; font-size:13px; letter-spacing:0.03em;}
+
+  .visit{display:grid; grid-template-columns:1.1fr 1fr; gap:50px; align-items:start;}
+  address{font-style:normal; font-size:18px; margin-bottom:22px; font-weight:600;}
+  .hours-row{display:flex; justify-content:space-between; padding:9px 0; font-size:15px; border-top:1px solid #D6D0C1;}
+  .hours-row:last-child{border-bottom:1px solid #D6D0C1;}
+  .contact-block{background:var(--navy-2); color:var(--off); padding:26px;}
+  .contact-block a{color:var(--brass); font-weight:700; text-decoration:none; font-size:18px; display:block; margin-top:10px;}
+
+  footer{background:var(--navy); color:#9AA3AB; text-align:center; padding:32px 0 90px; font-size:13px;}
+
+  .sticky-cta{
+    position:fixed; left:0; right:0; bottom:0; z-index:10;
+    background:var(--brass); border-top:2px solid var(--navy);
+  }
+  .sticky-cta a{
+    display:block; text-align:center; padding:16px 0; color:var(--navy);
+    text-decoration:none; font-weight:700; font-family:'Oswald'; text-transform:uppercase;
+    letter-spacing:0.03em; font-size:16px;
+  }
+
+  @media(max-width:680px){
+    .services{grid-template-columns:1fr;}
+    .service:nth-child(odd){border-right:none;}
+    .quotes{grid-template-columns:1fr;}
+    .visit{grid-template-columns:1fr;}
+    .cta.ghost{display:block; margin-left:0; margin-top:14px; text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">TRENDY GUYS<span>.</span></div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="rating">★★★★★ 5.0 — 34 Google reviews</div>
+    <h1>Sharp cuts, straight talk.</h1>
+    <p>A no-nonsense barber shop on Rye Lane, Peckham — clean fades, fair prices, and a shop the regulars trust.</p>
+    <a class="cta" href="tel:+447404239110">Call 07404 239110</a>
+    <a class="cta ghost" href="https://maps.google.com/?cid=127259885062741697" target="_blank">Get directions</a>
+  </div>
+</section>
+
+<div class="stat-bar">
+  <div class="wrap">
+    <div><strong>5.0★</strong>average rating</div>
+    <div><strong>34</strong>Google reviews</div>
+    <div><strong>7</strong>days a week</div>
+    <div><strong>10–8</strong>daily hours</div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head"><h2>Services</h2><div class="rule"></div></div>
+    <div class="services">
+      <div class="service"><span class="name">Skin fade</span><span class="price">£18</span></div>
+      <div class="service"><span class="name">Classic haircut</span><span class="price">£15</span></div>
+      <div class="service"><span class="name">Beard trim & line-up</span><span class="price">£10</span></div>
+      <div class="service"><span class="name">Cut & beard combo</span><span class="price">£22</span></div>
+      <div class="service"><span class="name">Kids' cut</span><span class="price">£12</span></div>
+      <div class="service"><span class="name">Hot towel shave</span><span class="price">£14</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="section-head"><h2>What the regulars say</h2><div class="rule"></div></div>
+    <div class="quotes">
+      <div class="quote">
+        <p>Clients single out Faridoon by name for consistently sharp work and a genuinely warm welcome every visit.</p>
+        <div class="who">GOOGLE REVIEW</div>
+      </div>
+      <div class="quote">
+        <p>People who've tried several barbers around Peckham say this is where they finally settled — the trims just hold up better.</p>
+        <div class="who">GOOGLE REVIEW</div>
+      </div>
+      <div class="quote">
+        <p>The shop itself gets called out as spotless, and reviewers describe the prices as more than fair for the quality.</p>
+        <div class="who">GOOGLE REVIEW</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="section-head"><h2>Visit</h2><div class="rule"></div></div>
+    <div class="visit">
+      <div>
+        <address>142 Rye Lane<br>London SE15 4RZ</address>
+        <div class="hours-row"><span>Monday – Sunday</span><span>10:00 – 20:00</span></div>
+      </div>
+      <div class="contact-block">
+        <div>Book by phone</div>
+        <a href="tel:+447404239110">07404 239110</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Trendy Guys Barber Shop · 142 Rye Lane, London SE15 4RZ · 07404 239110
+</footer>
+
+<div class="sticky-cta">
+  <a href="tel:+447404239110">Book now — call 07404 239110</a>
+</div>
+
+</body>
+</html>
